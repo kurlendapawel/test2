@@ -6,6 +6,6 @@ namespace Application.Domain.Entities
 {
     public class Category
     {
-        public int Id { get; set; }
+        public int Id2 { get; set; }
     }
 }
