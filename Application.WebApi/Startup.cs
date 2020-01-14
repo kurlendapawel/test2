@@ -34,7 +34,7 @@ namespace Application.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductRepository, FakeProductRepository>();
             services.AddTransient<IProductService, ProductService>();
 
             var mappingConfig = new MapperConfiguration(mc =>
@@ -45,8 +45,8 @@ namespace Application.WebApi
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddDbContext<AppDataContext>(option =>
-                option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<AppDataContext>(option =>
+            //    option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
