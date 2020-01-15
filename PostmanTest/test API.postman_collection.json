@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "e3a4b427-7bfb-499e-8381-30de1d485f46",
+		"name": "backend test API",
+		"description": "tech test to create a fictional product.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "Get final state",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fd0376ab-ca0d-44cb-bd3c-c8be5a032aac",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"products"
+							]
+						},
+						"description": "Return a list of products"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for products"
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "Create a single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d88b03a-64ed-40c1-aa60-e54176dcf495",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Name_5",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "9.93",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cae89c18-d7c8-49e5-ba29-0aaee50b9529",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Return a single product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get non-existent product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb5f44f0-dac7-4d6f-a796-efc965ca4096",
+								"exec": [
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product/400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"400"
+							]
+						},
+						"description": "Return a single product"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0c264e7-9a68-40d2-bea0-bd8abf7c7d33",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Name_4",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "60",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Update a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a nonexistent product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "318843e6-0d73-418d-9c9e-9c52bfabb7c1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "UpdatedTestName",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product/402",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"402"
+							]
+						},
+						"description": "Update a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get single product again",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "99f29fad-5d98-4098-9546-b844c42b573a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Return a single product"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d62fb02-a4e6-4572-b457-d839d70ebb7b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "size",
+									"value": "original",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Delete a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete non-existent product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fdd324c0-0130-4e91-a8a9-7ec504ed65c9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "size",
+									"value": "original",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Delete a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm deletion",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a676204-1332-425c-a6c6-40384984e98e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Return a single product"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for product"
+		},
+		{
+			"name": "initial_state",
+			"item": [
+				{
+					"name": "Get initial state",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd960841-6f2b-43fa-b572-331ad7ba74fa",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests['Length of array'] = jsonData.length === 3;",
+									"",
+									"tests[\"First product name\"] = jsonData[0].name === \"Name_1\";",
+									"tests[\"First product price\"] = jsonData[0].price === \"15\";",
+									"tests[\"First product id\"] = jsonData[0].id === 1;",
+									"",
+									"tests[\"Second product name\"] = jsonData[1].name === \"Name_2\";",
+									"tests[\"Second product price\"] = jsonData[1].price === \"30\";",
+									"tests[\"Second product id\"] = jsonData[1].id === 2;",
+									"",
+									"tests[\"Third product name\"] = jsonData[2].name === \"Name_3\";",
+									"tests[\"Third product price\"] = jsonData[2].price === \"45\";",
+									"tests[\"Third product id\"] = jsonData[2].id === 3;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"products"
+							]
+						},
+						"description": "Return a list of products"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
