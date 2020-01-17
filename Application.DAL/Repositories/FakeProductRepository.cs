@@ -13,12 +13,12 @@ namespace Application.DAL.Repositories
 {
     public class FakeProductRepository : IProductRepository
     {
-        private static List<Product> Products = new List<Product>()
-        {
-            new Product() { Id = 1, Name = "Name_1", Price = "15" },
-            new Product() { Id = 2, Name = "Name_2", Price = "30" },
-            new Product() { Id = 3, Name = "Name_3", Price = "45" }
-        };
+        private static List<Product> Products = new List<Product>();
+        //{
+        //    new Product() { Id = 1, Name = "Name_1", Price = "15" },
+        //    new Product() { Id = 2, Name = "Name_2", Price = "30" },
+        //    new Product() { Id = 3, Name = "Name_3", Price = "45" }
+        //};
 
 
         public int Add(Product product)

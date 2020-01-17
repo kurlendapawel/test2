@@ -1,13 +1,10 @@
-﻿using Application.DAL.Repositories.Base;
-using Application.DAL.Repositories.Interfaces;
+﻿using Application.DAL.Repositories.Interfaces;
 using Application.Domain.Entities;
 using Application.Infrastucture.DTOs;
 using Application.Infrastucture.Interfaces;
 using AutoMapper;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace Application.Infrastucture.Services
 {
@@ -61,12 +58,21 @@ namespace Application.Infrastucture.Services
             if (product == null)
                 return false;
 
-            product.Name = entity.Name ?? product.Name;
-            product.Price = entity.Price ?? product.Price;
+            product.Name = entity.Name;
+            product.Price = entity.Price;
 
             _productRepository.Update(product);
 
             return true;
+        }
+
+        public int GetSumPricesAllproducts()
+        {
+            var products = GetAll().ToList();
+
+            var sum = products.Sum(x => x.Price);
+
+            return sum;
         }
     }
 }

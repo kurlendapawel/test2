@@ -11,9 +11,8 @@ namespace Application.Domain.Entities
     {
         [StringLength(50)]
         public string Name { get; set; }
-
-        [StringLength(50)]
-        public string Price { get; set; }
+                
+        public int Price { get; set; }
 
         [Key]
         public int Id { get; set; }

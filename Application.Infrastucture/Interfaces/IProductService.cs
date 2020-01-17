@@ -1,9 +1,5 @@
-﻿using Application.Domain.Entities;
-using Application.Infrastucture.DTOs;
-using System;
+﻿using Application.Infrastucture.DTOs;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Infrastucture.Interfaces
 {
@@ -14,5 +10,6 @@ namespace Application.Infrastucture.Interfaces
         ProductDto Get(int id);
         int Add(ProductDto entity);
         bool Update(ProductDto entity, int id);
+        int GetSumPricesAllproducts();
     }
 }
