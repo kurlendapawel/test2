@@ -24,39 +24,39 @@ namespace Application.Infrastucture.Services
             _mapper = mapper;
         }
 
-        public async Task<int> Add(ProductDto entity)
+        public int Add(ProductDto entity)
         {
             var product = _mapper.Map<Product>(entity);
-            return await _productRepository.AddAsync(product);
+            return _productRepository.Add(product);
         }
 
-        public async Task<bool> Delete(int id)
+        public bool Delete(int id)
         {
-            var entity = await _productRepository.GetSingleAsync(id);
+            var entity = _productRepository.GetSingle(id);
 
             if (entity == null)
                 return false;
 
-            await _productRepository.DeleteAsync(id);
+            _productRepository.Delete(id);
             return true;
         }
 
-        public async Task<ProductDto> Get(int id)
+        public ProductDto Get(int id)
         {
-            var result = await _productRepository.GetSingleAsync(id);
+            var result = _productRepository.GetSingle(id);
             return _mapper.Map<ProductDto>(result);
         }
 
-        public async Task<IEnumerable<ProductDto>> GetAll()
+        public IEnumerable<ProductDto> GetAll()
         {
-            var result = await _productRepository.GetAllAsync();
+            var result = _productRepository.GetAll();
 
             return _mapper.Map<List<ProductDto>>(result);
         }
 
-        public async Task<bool> Update(ProductDto entity, int id)
+        public bool Update(ProductDto entity, int id)
         {
-            var product = await _productRepository.GetSingleAsync(id);
+            var product = _productRepository.GetSingle(id);
 
             if (product == null)
                 return false;
@@ -64,7 +64,7 @@ namespace Application.Infrastucture.Services
             product.Name = entity.Name ?? product.Name;
             product.Price = entity.Price ?? product.Price;
 
-            await _productRepository.UpdateAsync(product);
+            _productRepository.Update(product);
 
             return true;
         }

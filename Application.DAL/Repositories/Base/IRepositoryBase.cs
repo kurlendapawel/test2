@@ -9,10 +9,10 @@ namespace Application.DAL.Repositories.Base
 {
     public interface IRepositoryBase<TEntity> where TEntity : class, IEntity
     {
-        Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<TEntity> GetSingleAsync(int id);
-        Task<int> AddAsync(TEntity entity);
-        Task DeleteAsync(int id);
-        Task UpdateAsync(TEntity entity);
+        IEnumerable<TEntity> GetAll();
+        TEntity GetSingle(int id);
+        int Add(TEntity entity);
+        void Delete(int id);
+        void Update(TEntity entity);
     }
 }

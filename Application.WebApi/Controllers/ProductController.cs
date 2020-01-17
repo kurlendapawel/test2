@@ -14,6 +14,7 @@ namespace Application.WebApi.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
+
         public ProductController(
             IProductService productService)
         {
@@ -21,16 +22,16 @@ namespace Application.WebApi.Controllers
         }
 
         [HttpGet("products")]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            var result =  await _productService.GetAll();
+            var result = _productService.GetAll();
             return Ok(result);
         }
 
         [HttpGet("product/{product_id}")]
-        public async Task<IActionResult> Get(int product_id)
+        public IActionResult Get(int product_id)
         {
-            var result = await _productService.Get(product_id);
+            var result = _productService.Get(product_id);
 
             if (result == null)
                 return NotFound();
@@ -39,17 +40,17 @@ namespace Application.WebApi.Controllers
         }
 
         [HttpPost("product")]
-        public async Task<IActionResult> Post([FromHeader]ProductDto product)
+        public IActionResult Post([FromHeader]ProductDto product)
         {
-            var result = await _productService.Add(product);
+            var result = _productService.Add(product);
 
             return Ok(result);
         }
 
         [HttpPut("product/{product_id}")]
-        public async Task<IActionResult> Put([FromHeader]ProductDto product, int product_id)
+        public IActionResult Put([FromHeader]ProductDto product, int product_id)
         {
-            var result = await _productService.Update(product, product_id);
+            var result = _productService.Update(product, product_id);
 
             if (result)
                 return Ok();
@@ -58,9 +59,9 @@ namespace Application.WebApi.Controllers
         }
 
         [HttpDelete("product/{product_id}")]
-        public async Task<IActionResult> Delete(int product_id)
+        public IActionResult Delete(int product_id)
         {
-            var result = await _productService.Delete(product_id);
+            var result = _productService.Delete(product_id);
 
             if (result)
                 return Ok();

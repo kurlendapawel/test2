@@ -21,41 +21,41 @@ namespace Application.DAL.Repositories
         };
 
 
-        public async Task<int> AddAsync(Product product)
+        public int Add(Product product)
         {
-            await Task.Delay(100);
+            Task.Delay(100);
 
             Products.Add(product);
 
             return product.Id;
         }
 
-        public async Task DeleteAsync(int id)
+        public void Delete(int id)
         {
-            await Task.Delay(100);
+            Task.Delay(100);
 
             var entity = Products.FirstOrDefault(x => x.Id == id);
 
             Products.Remove(entity);
         }
 
-        public async Task<IEnumerable<Product>> GetAllAsync()
+        public IEnumerable<Product> GetAll()
         {
-            await Task.Delay(100);
+            Task.Delay(100);
 
             return Products;
         }
 
-        public async Task<Product> GetSingleAsync(int id)
+        public Product GetSingle(int id)
         {
-            await Task.Delay(100);
+            Task.Delay(100);
 
             return Products.FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task UpdateAsync(Product product)
+        public void Update(Product product)
         {
-            await Task.Delay(100);
+            Task.Delay(100);
 
             var entity = Products.FirstOrDefault(x => x.Id == product.Id);
 

@@ -9,10 +9,10 @@ namespace Application.Infrastucture.Interfaces
 {
     public interface IProductService
     {
-        Task<bool> Delete(int id);
-        Task<IEnumerable<ProductDto>> GetAll();
-        Task<ProductDto> Get(int id);
-        Task<int> Add(ProductDto entity);
-        Task<bool> Update(ProductDto entity, int id);
+        bool Delete(int id);
+        IEnumerable<ProductDto> GetAll();
+        ProductDto Get(int id);
+        int Add(ProductDto entity);
+        bool Update(ProductDto entity, int id);
     }
 }

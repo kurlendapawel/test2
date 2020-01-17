@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Application.DAL.Repositories.Base
 {
@@ -18,37 +19,37 @@ namespace Application.DAL.Repositories.Base
             _appDataContext = appDataContext;
         }
 
-        public async Task<int> AddAsync(TEntity entity)
+        public int Add(TEntity entity)
         {
-            await _appDataContext.Set<TEntity>().AddAsync(entity);
-            await _appDataContext.SaveChangesAsync();
+            _appDataContext.Set<TEntity>().Add(entity);
+            _appDataContext.SaveChanges();
 
             return entity.Id;
         }
 
-        public async Task DeleteAsync(int id)
+        public void Delete(int id)
         {
-            var result = _appDataContext.Set<TEntity>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-            _appDataContext.Set<TEntity>().Remove(result.Result);
-            await _appDataContext.SaveChangesAsync();
+            var result = _appDataContext.Set<TEntity>().AsNoTracking().FirstOrDefault(x => x.Id == id);
+            _appDataContext.Set<TEntity>().Remove(result);
+            _appDataContext.SaveChanges();
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
-        {
-            var result = _appDataContext.Set<TEntity>().AsNoTracking();
-            return await result.ToListAsync();
-        }
-
-        public async Task<TEntity> GetSingleAsync(int id)
+        public IEnumerable<TEntity> GetAll()
         {
             var result = _appDataContext.Set<TEntity>().AsNoTracking();
-            return await result.FirstOrDefaultAsync(x => x.Id == id);
+            return result.ToList();
         }
 
-        public async Task UpdateAsync(TEntity entity)
+        public TEntity GetSingle(int id)
+        {
+            var result = _appDataContext.Set<TEntity>().AsNoTracking();
+            return result.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Update(TEntity entity)
         {
             _appDataContext.Set<TEntity>().Update(entity);
-            await _appDataContext.SaveChangesAsync();
+            _appDataContext.SaveChanges();
         }
     }
 }
