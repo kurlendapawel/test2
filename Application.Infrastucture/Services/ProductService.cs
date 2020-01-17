@@ -61,8 +61,8 @@ namespace Application.Infrastucture.Services
             if (product == null)
                 return false;
 
-            product.Name = entity.Name ?? product.Name;
-            product.Price = entity.Price ?? product.Price;
+            product.Name = entity.Name;
+            product.Price = entity.Price;
 
             _productRepository.Update(product);
 
