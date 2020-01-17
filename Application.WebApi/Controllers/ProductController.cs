@@ -40,7 +40,7 @@ namespace Application.WebApi.Controllers
         }
 
         [HttpPost("product")]
-        public IActionResult Post([FromHeader]ProductDto product)
+        public IActionResult Post([FromBody]ProductDto product)
         {
             var result = _productService.Add(product);
 
@@ -48,7 +48,7 @@ namespace Application.WebApi.Controllers
         }
 
         [HttpPut("product/{product_id}")]
-        public IActionResult Put([FromHeader]ProductDto product, int product_id)
+        public IActionResult Put([FromBody]ProductDto product, int product_id)
         {
             var result = _productService.Update(product, product_id);
 
