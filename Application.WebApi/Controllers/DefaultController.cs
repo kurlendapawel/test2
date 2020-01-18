@@ -12,5 +12,10 @@ namespace Application.WebApi.Controllers
         {
             return View();
         }
+
+        public IActionResult Get()
+        {
+            return View();
+        }
     }
 }
